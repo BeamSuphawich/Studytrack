@@ -1,0 +1,15 @@
+# Docker build context = project root. Send ONLY what the backend build needs.
+*
+!demo/mvnw
+!demo/pom.xml
+!demo/.mvn/
+!demo/src/
+
+# Never sent, even if they appear inside the folders above:
+# secrets, build output, git history, the design reference, test cookie jars
+**/.env
+**/.env.*
+**/target/
+**/.git
+**/design/
+**/*cookies*.txt
