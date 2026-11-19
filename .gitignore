@@ -1,0 +1,17 @@
+# Secrets: real values live only in .env (see .env.example)
+.env
+.env.*
+!.env.example
+
+# curl cookie jars used for manual API tests (contain session ids and CSRF tokens)
+cookies.txt
+*cookies*.txt
+*.cookies
+cookie-jar*
+*-jar.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
