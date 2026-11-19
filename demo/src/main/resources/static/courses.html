@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courses · Study Planner</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app">
+  <main class="main" id="main">
+    <div class="page">
+      <div class="page-head">
+        <div class="page-head__text">
+          <h1 class="page-title">Courses</h1>
+          <p class="page-sub" id="courses-sub"></p>
+        </div>
+        <button type="button" class="btn btn-primary" data-action="add-course"><span class="btn__plus" aria-hidden="true">+</span> Add course</button>
+      </div>
+
+      <div class="empty" id="courses-empty" hidden>
+        <span class="empty__icon" aria-hidden="true"><span class="icon-book"></span></span>
+        <h2 class="empty__title">No courses yet</h2>
+        <p class="empty__text">Add the courses you’re taking this semester to start tracking tasks and grades.</p>
+        <button type="button" class="btn btn-primary" data-action="add-course">Add your first course</button>
+      </div>
+
+      <div class="course-grid" id="course-grid"></div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/courses.js"></script>
+</body>
+</html>

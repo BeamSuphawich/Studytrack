@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tasks · Study Planner</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app">
+  <main class="main" id="main">
+    <div class="page page--tight">
+      <div class="page-head">
+        <div class="page-head__text">
+          <h1 class="page-title">Tasks</h1>
+          <p class="page-sub" id="tasks-sub"></p>
+        </div>
+        <button type="button" class="btn btn-primary" data-action="add-task"><span class="btn__plus" aria-hidden="true">+</span> Add task</button>
+      </div>
+
+      <div class="toolbar">
+        <div class="seg-inline" role="group" aria-labelledby="group-label">
+          <span class="seg-inline__label" id="group-label">Group by</span>
+          <button type="button" class="segmented__btn" data-action="group" data-group="status" aria-pressed="true">Status</button>
+          <button type="button" class="segmented__btn" data-action="group" data-group="course" aria-pressed="false">Course</button>
+        </div>
+        <select class="select-filter" id="course-filter" aria-label="Filter by course"></select>
+        <button type="button" class="toggle-chip" id="overdue-toggle" data-action="toggle-overdue" aria-pressed="false">Overdue only</button>
+      </div>
+
+      <div class="empty" id="tasks-empty" hidden>
+        <span class="empty__icon" aria-hidden="true"><span class="icon-circle"></span></span>
+        <h2 class="empty__title">No tasks yet</h2>
+        <p class="empty__text" id="tasks-empty-text"></p>
+        <button type="button" class="btn btn-primary" id="tasks-empty-cta" data-action="add-task"></button>
+      </div>
+
+      <div id="task-view"></div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>

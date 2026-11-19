@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Study Planner</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app">
+  <main class="main" id="main">
+    <div class="page">
+      <div class="page-head">
+        <div class="page-head__text">
+          <div class="eyebrow" id="today-long"></div>
+          <h1 class="page-title" id="greeting">Dashboard</h1>
+          <p class="page-sub" id="dash-sub"></p>
+        </div>
+        <button type="button" class="btn btn-primary" data-action="add-task"><span class="btn__plus" aria-hidden="true">+</span> Add task</button>
+      </div>
+
+      <section class="banner" id="setup-banner" hidden>
+        <div class="banner__text">
+          <h2 class="banner__title">Set up your semester</h2>
+          <p class="banner__sub">Add your courses first — tasks and grades are organized by course.</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-action="add-course">Add course</button>
+      </section>
+
+      <section class="card stack" aria-labelledby="overview-title">
+        <div class="section-head section-head--baseline">
+          <h2 class="card-title" id="overview-title">Task overview</h2>
+          <span class="overview__count" id="done-of-total"></span>
+        </div>
+        <div class="stackbar" id="stackbar" role="img">
+          <span class="stackbar__seg" data-status="done"></span>
+          <span class="stackbar__seg" data-status="progress"></span>
+          <span class="stackbar__seg" data-status="todo"></span>
+        </div>
+        <div class="stat-grid" id="stat-grid"></div>
+      </section>
+
+      <div class="dash-grid">
+        <section class="card stack" aria-labelledby="cal-title">
+          <div class="section-head">
+            <h2 class="card-title" id="cal-title" aria-live="polite"></h2>
+            <div class="cal__nav">
+              <button type="button" class="btn-outline-sm" data-action="cal-today">Today</button>
+              <button type="button" class="btn-icon" data-action="cal-prev" aria-label="Previous month">‹</button>
+              <button type="button" class="btn-icon" data-action="cal-next" aria-label="Next month">›</button>
+            </div>
+          </div>
+          <div class="cal__grid" id="cal-grid"></div>
+          <div class="day-list">
+            <div class="eyebrow" id="sel-label"></div>
+            <div class="stack stack--8" id="sel-list"></div>
+          </div>
+        </section>
+
+        <section class="card stack stack--8 upcoming" aria-labelledby="upcoming-title">
+          <div class="section-head">
+            <h2 class="card-title" id="upcoming-title">Upcoming tasks</h2>
+            <a class="btn-link" href="tasks.html">View all</a>
+          </div>
+          <div id="upcoming-list"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

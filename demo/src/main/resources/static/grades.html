@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grades · Study Planner</title>
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app">
+  <main class="main" id="main">
+    <div class="page page--tight">
+      <div class="page-head">
+        <div class="page-head__text">
+          <h1 class="page-title">Grades</h1>
+          <p class="page-sub">Enter scores and weights to see your current grade.</p>
+        </div>
+      </div>
+
+      <div class="empty" id="grades-empty" hidden>
+        <span class="empty__icon" aria-hidden="true"><span class="icon-chart"></span></span>
+        <h2 class="empty__title">No courses to grade</h2>
+        <p class="empty__text">Add a course first, then enter its assessments and weights here.</p>
+        <button type="button" class="btn btn-primary" data-action="add-course">Add course</button>
+      </div>
+
+      <div class="stack stack--20" id="grades-content" hidden>
+        <div class="course-tabs" id="course-tabs" role="tablist" aria-label="Courses"></div>
+
+        <div class="grades-grid" id="grades-panel" role="tabpanel">
+          <section class="card stack stack--12" aria-labelledby="course-name">
+            <div class="section-head">
+              <div class="assess-card__titles">
+                <h2 class="card-title" id="course-name"></h2>
+                <span class="assess-card__meta" id="course-meta"></span>
+              </div>
+              <button type="button" class="btn btn-secondary btn-secondary--sm" data-action="add-assess"><span class="btn__plus" aria-hidden="true">+</span> Add assessment</button>
+            </div>
+            <div id="assess-body"></div>
+            <div class="assess-foot" id="assess-foot" hidden></div>
+          </section>
+
+          <div class="stack stack--20">
+            <section class="card card--highlight stack stack--14" aria-labelledby="grade-title">
+              <div class="section-head">
+                <h2 class="card-title" id="grade-title">Current grade</h2>
+                <button type="button" class="btn-ghost-sm" data-action="edit-scale">Edit grade scale</button>
+              </div>
+              <div class="grade-card__main">
+                <span class="grade-card__letter" id="g-letter">—</span>
+                <span class="grade-card__pct" id="g-pct"></span>
+              </div>
+              <div class="grade-card__progress">
+                <div class="progress" id="g-bar" role="progressbar" aria-label="Share of the course graded" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress__fill" id="g-bar-fill"></div>
+                </div>
+                <span class="small-muted" id="g-graded"></span>
+                <span class="small-muted" id="g-range" hidden></span>
+              </div>
+              <div class="grade-card__earned">
+                <span class="muted">Points earned so far</span>
+                <strong id="g-earned"></strong>
+              </div>
+              <p class="scale-line" id="g-scale"></p>
+            </section>
+
+            <section class="card stack stack--14" aria-labelledby="whatif-title">
+              <div class="whatif__head">
+                <h2 class="card-title" id="whatif-title">What-if final exam</h2>
+                <span class="whatif__sub">Pick a target grade to see the score you need.</span>
+              </div>
+              <div class="stack stack--14" id="whatif-body"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/grades.js"></script>
+</body>
+</html>
